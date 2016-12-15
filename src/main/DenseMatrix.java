@@ -117,17 +117,17 @@ public class DenseMatrix implements Matrix {
         SparseMatrix res = new SparseMatrix(size);
         for (int i = 0; i < size; i++) {
             row resRow = new row();
-            Iterator<Map.Entry<Integer, row>> iter1 = other.map.entrySet().iterator();// итератор строк
+            Iterator<Map.Entry<Integer, row>> iter1 = other.map.entrySet().iterator();
             while (iter1.hasNext()) {
                 Map.Entry entry1 = iter1.next();
-                Integer key1 = (Integer) entry1.getKey();// ключ строки
-                HashMap<Integer, Double> value1 = (HashMap<Integer, Double>) entry1.getValue();// сама строка
-                Iterator iterElement = value1.entrySet().iterator();// итератор элементов
+                Integer key1 = (Integer) entry1.getKey();
+                HashMap<Integer, Double> value1 = (HashMap<Integer, Double>) entry1.getValue();
+                Iterator iterElement = value1.entrySet().iterator();
                 double resValue = 0;
                 while (iterElement.hasNext()) {
                     Map.Entry entryElement = (Map.Entry) iterElement.next();
-                    Integer keyElement = (Integer) entryElement.getKey();// ключ элемента
-                    Double valueElement = (Double) entryElement.getValue();//значение элемента
+                    Integer keyElement = (Integer) entryElement.getKey();
+                    Double valueElement = (Double) entryElement.getValue();
                     resValue = resValue + this.matrix[i][keyElement] * valueElement;
                 }
                 if (resValue != 0) {
